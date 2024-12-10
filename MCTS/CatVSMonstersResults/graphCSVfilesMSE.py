@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-def mse(values, optimal_values):
+def calcMSE(values, optimal_values):
     result = []
     for state in optimal_values.keys():
         if state in [(4,4), (2, 1), (2, 2), (2, 3), (3, 2)]:
@@ -27,12 +27,12 @@ def plotCSV(csv_file, optimal_values, title):
     groupedData = csvToDict(csv_file)
     mseVals = []
     outerKeys = sorted(groupedData.keys())
-    for outer_key in outerKeys:
-        inner_key_values = groupedData[outer_key]
-        mse = mse(inner_key_values, optimal_values)
+    for outerKey in outerKeys:
+        innerKey = groupedData[outerKey]
+        mse = calcMSE(innerKey, optimal_values)
         mseVals.append(mse)
     plt.figure(figsize=(10, 6))
-    plt.plot(outer_key, mseVals, color="blue", marker="o", linestyle="-", label="MSE")
+    plt.plot(outerKeys, mseVals, color="blue", marker="o", linestyle="-", label="MSE")
     plt.title(title)
     plt.xlabel("Iterations")
     plt.ylabel("Mean Squared Error (MSE)")

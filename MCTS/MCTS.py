@@ -88,7 +88,7 @@ class MCTS:
             if selNode != self.env.food:
                 child = selNode.expand()
                 reward = self.simulate(child)
-                selNode.backPropogate(reward, child)
+                selNode.backPropagate(reward, child)
             if (i % 250 == 0 and i != 0) or i == 9999:
                 if self.decay:
                     self.epsilon -= 0.02375
@@ -158,7 +158,7 @@ class UpperConfidenceTree:
         self.actionVisits[state][bestA] += 1  
         return bestA
 
-
+"""
 maxQVals = defaultdict(lambda: defaultdict(list))
 env = CatVSMonsters()
 q = ActionValueFunction()
@@ -171,7 +171,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExploreTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -192,7 +192,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExploreSqrtTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -213,7 +213,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExploreOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -234,7 +234,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExploreOneOverSqrtTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -255,7 +255,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExplorePointZeroFive.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -276,7 +276,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExplorePointZeroZeroOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -297,7 +297,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT, epsilon=0.2).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT, epsilon=0.2).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./MCTS/CCatVSMonstersResults/EpsilonPointTwoMCTSExplorePointZeroZeroOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -318,7 +318,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT, epsilon=0.1).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT, epsilon=0.1).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./MCTS/CatVSMonstersResults/EpsilonPointOneMCTSExplorePointZeroZeroOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -339,7 +339,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT, epsilon=0.05).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT, epsilon=0.05).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./MCTS/CatVSMonstersResults/EpsilonPointZeroFiveMCTSExplorePointZeroZeroOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -360,7 +360,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT, epsilon=1.0, decay=True).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT, epsilon=1.0, decay=True).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./MCTS/CatVSMonstersResults/EpsilonDecayMCTSExplorePointZeroZeroOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -381,7 +381,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./ReinforcementLearningAlgorithms/MCTS/GridWorld687Results/regularMCTSExploreTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -402,7 +402,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./ReinforcementLearningAlgorithms/MCTS/GridWorld687Results/regularMCTSExploreSqrtTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -423,7 +423,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./ReinforcementLearningAlgorithms/MCTS/GridWorld687Results/regularMCTSExploreOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -444,7 +444,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./ReinforcementLearningAlgorithms/MCTS/GridWorld687Results/regularMCTSExploreOneOverSqrtTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -465,7 +465,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./ReinforcementLearningAlgorithms/MCTS/GridWorld687Results/regularMCTSExplorePointZeroFive.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -486,7 +486,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./ReinforcementLearningAlgorithms/MCTS/GridWorld687Results/regularMCTSExplorePointZeroZeroOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -507,7 +507,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT, epsilon=0.2).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT, epsilon=0.2).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./ReinforcementLearningAlgorithms/MCTS/GridWorld687Results/EpsilonPointTwoMCTSExploreTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -515,7 +515,7 @@ with open(csv_file, mode='w', newline='') as file:
     for outer_key, inner_dict in maxQVals.items():
         for inner_key, value in inner_dict.items():
             writer.writerow([outer_key, inner_key, value])
-
+"""
 maxQVals = defaultdict(lambda: defaultdict(list))
 env = GridWorld687()
 q = ActionValueFunction()
@@ -528,7 +528,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT, epsilon=0.1).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT, epsilon=0.1).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./ReinforcementLearningAlgorithms/MCTS/GridWorld687Results/EpsilonPointOneMCTSExploreTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -549,7 +549,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT, epsilon=0.05).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT, epsilon=0.05).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./ReinforcementLearningAlgorithms/MCTS/GridWorld687Results/EpsilonPointZeroFiveMCTSExploreTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
@@ -570,7 +570,7 @@ for i in range(5):
         state = (i,j)
         if state in env.forbidden_furniture or state == env.food:
             continue
-        root_node = MCTS(env, q, UCT, epsilon=1.0, decay=True).mcts(iterations=10000, root_node=Node(env, None, state, q, UCT))
+        rootNode = MCTS(env, q, UCT, epsilon=1.0, decay=True).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
 csv_file = "./ReinforcementLearningAlgorithms/MCTS/GridWorld687Results/EpsilonDecayMCTSExploreTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)

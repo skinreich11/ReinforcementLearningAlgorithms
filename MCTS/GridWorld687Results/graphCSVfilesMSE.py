@@ -2,10 +2,10 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-def mse(values, optimal_values):
+def calcMSE(values, optimal_values):
     result = []
     for state in optimal_values.keys():
-        if state in [(4,4), (2, 1), (2, 2), (2, 3), (3, 2)]:
+        if state in [(4,4), (2,2), (3,2)]:
             continue
         else:
             result.append((values[state][1]-optimal_values[state]) ** 2) 
@@ -23,16 +23,16 @@ def csvToDict(csv_file):
         groupedData[outerKey][innerKey] = value
     return groupedData
 
-def plotCSV(csv_file, optimal_values, title):
+def plotCSV(csv_file, optV, title):
     groupedData = csvToDict(csv_file)
     mseVals = []
     outerKeys = sorted(groupedData.keys())
-    for outer_key in outerKeys:
-        inner_key_values = groupedData[outer_key]
-        mse = mse(inner_key_values, optimal_values)
+    for outerKey in outerKeys:
+        innerKey = groupedData[outerKey]
+        mse = calcMSE(innerKey, optV)
         mseVals.append(mse)
     plt.figure(figsize=(10, 6))
-    plt.plot(outer_key, mseVals, color="blue", marker="o", linestyle="-", label="MSE")
+    plt.plot(outerKeys, mseVals, color="blue", marker="o", linestyle="-", label="MSE")
     plt.title(title)
     plt.xlabel("Iterations")
     plt.ylabel("Mean Squared Error (MSE)")
@@ -66,9 +66,9 @@ optV = {
     (4, 4): 0.0000
 }
 
-csv_files = ["./MCTS/GridWorld687Results/EpsilonPointTwoMCTSExploreTwo.csv", "./MCTS/GridWorld687Results/EpsilonPointOneMCTSExploreTwo.csv","./MCTS/GridWorld687Results/EpsilonPointZeroFiveMCTSExploreTwo.csv", "./MCTS/GridWorld687Results/EpsilonDecayMCTSExploreTwo.csv"] #["./MCTS/GridWorld687Results/regularMCTSExploreTwo.csv", "./MCTS/GridWorld687Results/regularMCTSExploreSqrtTwo.csv", "./MCTS/GridWorld687Results/regularMCTSExploreOne.csv", "./MCTS/GridWorld687Results/regularMCTSExploreOneOverSqrtTwo.csv", "./MCTS/GridWorld687Results/regularMCTSExplorePointZeroFive.csv", "./MCTS/GridWorld687Results/regularMCTSExplorePointZeroZeroOne.csv", "./MCTS/GridWorld687Results/EpsilonPointTwoMCTSExplorePointZeroZeroOne.csv", "./MCTS/GridWorld687Results/EpsilonPointOneMCTSExplorePointZeroZeroOne.csv","./MCTS/GridWorld687Results/EpsilonPointZeroFiveMCTSExplorePointZeroZeroOne.csv", "./MCTS/GridWorld687Results/EpsilonDecayMCTSExplorePointZeroZeroOne.csv"]
-titles = ["Epsilon=0.2 MCTS Exploration=2.0 MSE", "Epsilon=0.1 MCTS Exploration=2.0 MSE", "Epsilon=0.05 MCTS Exploration=2.0 MSE", "Epsilon decay by 0.02375 every 250 episodes MCTS Exploration=2.0 MSE"] #["regular MCTS Exploration=2 MSE", "regular MCTS Exploration=sqrt(2) MSE", "regular MCTS Exploration=1 MSE", "regular MCTS Exploration=1/sqrt(2) MSE", "regular MCTS Exploration=0.05 MSE", "regular MCTS Exploration=0.001 MSE", "Epsilon=0.2 MCTS Exploration=0.001 MSE", "Epsilon=0.1 MCTS Exploration=0.001 MSE", "Epsilon=0.05 MCTS Exploration=0.001 MSE", "Epsilon decay by 0.02375 every 250 episodes MCTS Exploration=0.001 MSE"]
+csv_files = ["./MCTS/GridWorld687Results/regularMCTSExploreTwo.csv", "./MCTS/GridWorld687Results/regularMCTSExploreSqrtTwo.csv", "./MCTS/GridWorld687Results/regularMCTSExploreOne.csv", "./MCTS/GridWorld687Results/regularMCTSExploreOneOverSqrtTwo.csv", "./MCTS/GridWorld687Results/regularMCTSExplorePointZeroFive.csv", "./MCTS/GridWorld687Results/regularMCTSExplorePointZeroZeroOne.csv", "./MCTS/GridWorld687Results/EpsilonPointTwoMCTSExplorePointZeroZeroOne.csv", "./MCTS/GridWorld687Results/EpsilonPointOneMCTSExplorePointZeroZeroOne.csv","./MCTS/GridWorld687Results/EpsilonPointZeroFiveMCTSExplorePointZeroZeroOne.csv", "./MCTS/GridWorld687Results/EpsilonDecayMCTSExplorePointZeroZeroOne.csv"]
+titles = ["regular MCTS Exploration=2 MSE", "regular MCTS Exploration=sqrt(2) MSE", "regular MCTS Exploration=1 MSE", "regular MCTS Exploration=1/sqrt(2) MSE", "regular MCTS Exploration=0.05 MSE", "regular MCTS Exploration=0.001 MSE", "Epsilon=0.2 MCTS Exploration=0.001 MSE", "Epsilon=0.1 MCTS Exploration=0.001 MSE", "Epsilon=0.05 MCTS Exploration=0.001 MSE", "Epsilon decay by 0.02375 every 250 episodes MCTS Exploration=0.001 MSE"]
 
 for csv_file, title in zip(csv_files, titles):
-    process_and_plot(csv_file, optV, title)
+    plotCSV(csv_file, optV, title)
 
