@@ -151,7 +151,7 @@ class UpperConfidenceTree:
         def UCB1(action):
             qVal = q.getQVal(state, action)
             visits = self.actionVisits[state][action]
-            UCB1Score = 2 * self.c * (math.sqrt(math.log(2 * (totVisits + 1)) / (visits + 1)))
+            UCB1Score = self.c * (math.sqrt(math.log(totVisits + 1) / (visits + 1)))
             return qVal + UCB1Score
 
         bestA = max(actions, key=UCB1)
