@@ -172,7 +172,7 @@ for i in range(5):
         if state in env.forbidden_furniture or state == env.food:
             continue
         rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
-csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExploreTwo.csv"
+csv_file = "./ReinforcementLearningAlgorithms/MCTS/CatVSMonstersResults/regularMCTSExploreTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Outer Key", "Inner Key (Tuple)", "Value"])
@@ -193,7 +193,7 @@ for i in range(5):
         if state in env.forbidden_furniture or state == env.food:
             continue
         rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
-csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExploreSqrtTwo.csv"
+csv_file = "./ReinforcementLearningAlgorithms/MCTS/CatVSMonstersResults/regularMCTSExploreSqrtTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Outer Key", "Inner Key (Tuple)", "Value"])
@@ -214,7 +214,7 @@ for i in range(5):
         if state in env.forbidden_furniture or state == env.food:
             continue
         rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
-csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExploreOne.csv"
+csv_file = "./ReinforcementLearningAlgorithms/MCTS/CatVSMonstersResults/regularMCTSExploreOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Outer Key", "Inner Key (Tuple)", "Value"])
@@ -235,7 +235,7 @@ for i in range(5):
         if state in env.forbidden_furniture or state == env.food:
             continue
         rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
-csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExploreOneOverSqrtTwo.csv"
+csv_file = "./ReinforcementLearningAlgorithms/MCTS/CatVSMonstersResults/regularMCTSExploreOneOverSqrtTwo.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Outer Key", "Inner Key (Tuple)", "Value"])
@@ -256,7 +256,7 @@ for i in range(5):
         if state in env.forbidden_furniture or state == env.food:
             continue
         rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
-csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExplorePointZeroFive.csv"
+csv_file = "./ReinforcementLearningAlgorithms/MCTS/CatVSMonstersResults/regularMCTSExplorePointZeroFive.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Outer Key", "Inner Key (Tuple)", "Value"])
@@ -277,7 +277,7 @@ for i in range(5):
         if state in env.forbidden_furniture or state == env.food:
             continue
         rootNode = MCTS(env, q, UCT).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
-csv_file = "./MCTS/CatVSMonstersResults/regularMCTSExplorePointZeroZeroOne.csv"
+csv_file = "./ReinforcementLearningAlgorithms/MCTS/CatVSMonstersResults/regularMCTSExplorePointZeroZeroOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Outer Key", "Inner Key (Tuple)", "Value"])
@@ -319,7 +319,7 @@ for i in range(5):
         if state in env.forbidden_furniture or state == env.food:
             continue
         rootNode = MCTS(env, q, UCT, epsilon=0.1).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
-csv_file = "./MCTS/CatVSMonstersResults/EpsilonPointOneMCTSExplorePointZeroZeroOne.csv"
+csv_file = "./ReinforcementLearningAlgorithms/MCTS/CatVSMonstersResults/EpsilonPointOneMCTSExplorePointZeroZeroOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Outer Key", "Inner Key (Tuple)", "Value"])
@@ -340,7 +340,7 @@ for i in range(5):
         if state in env.forbidden_furniture or state == env.food:
             continue
         rootNode = MCTS(env, q, UCT, epsilon=0.05).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
-csv_file = "./MCTS/CatVSMonstersResults/EpsilonPointZeroFiveMCTSExplorePointZeroZeroOne.csv"
+csv_file = "./ReinforcementLearningAlgorithms/MCTS/CatVSMonstersResults/EpsilonPointZeroFiveMCTSExplorePointZeroZeroOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Outer Key", "Inner Key (Tuple)", "Value"])
@@ -361,7 +361,7 @@ for i in range(5):
         if state in env.forbidden_furniture or state == env.food:
             continue
         rootNode = MCTS(env, q, UCT, epsilon=1.0, decay=True).mcts(iterations=10000, rootNode=Node(env, None, state, q, UCT))
-csv_file = "./MCTS/CatVSMonstersResults/EpsilonDecayMCTSExplorePointZeroZeroOne.csv"
+csv_file = "./ReinforcementLearningAlgorithms/MCTS/CatVSMonstersResults/EpsilonDecayMCTSExplorePointZeroZeroOne.csv"
 with open(csv_file, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(["Outer Key", "Inner Key (Tuple)", "Value"])
@@ -494,7 +494,7 @@ with open(csv_file, mode='w', newline='') as file:
     for outer_key, inner_dict in maxQVals.items():
         for inner_key, value in inner_dict.items():
             writer.writerow([outer_key, inner_key, value])
-
+"""
 maxQVals = defaultdict(lambda: defaultdict(list))
 env = GridWorld687()
 q = ActionValueFunction()
@@ -515,7 +515,7 @@ with open(csv_file, mode='w', newline='') as file:
     for outer_key, inner_dict in maxQVals.items():
         for inner_key, value in inner_dict.items():
             writer.writerow([outer_key, inner_key, value])
-"""
+
 maxQVals = defaultdict(lambda: defaultdict(list))
 env = GridWorld687()
 q = ActionValueFunction()

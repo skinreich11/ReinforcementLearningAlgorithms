@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class GridWorld687:
     def __init__(self, gamma=0.9):
         self.gamma = gamma
@@ -9,7 +12,7 @@ class GridWorld687:
             'AR': (0, 1)
         }
         self.forbidden_furniture = [(2, 2), (3, 2)]
-        self.monsters = [(0, 2)]
+        self.monsters = [(4, 2)]
         self.food = (4, 4)
     
     def valid(self, state):
@@ -55,3 +58,4 @@ class GridWorld687:
             0.05,
             0.1
         ]
+
